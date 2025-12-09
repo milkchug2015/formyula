@@ -1,49 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
+<html lang="en" dir="rtl"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formyula | Unified Data Forms for Salesforce CRM</title>
+    <title>Formyula / פורמיולה | Unified Data Forms for Salesforce CRM</title>
+    
     <style>
-        /* --- Basic Styling for Readability (Use your Elementor styles here) --- */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
+        /* --- General Reset & Layout --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; direction: rtl; text-align: right; }
         section { padding: 80px 5%; min-height: 400px; }
         .container { max-width: 1200px; margin: 0 auto; }
         .text-center { text-align: center; }
         .bg-light { background-color: #f7f7f7; }
-        h1, h2 { color: #007bff; /* Primary Brand Color */ }
+        h1, h2 { color: #007bff; /* Primary Brand Color (Blue) */ }
+        a { text-decoration: none; color: #007bff; }
+
+        /* --- Header & Navigation (RTL Specific) --- */
+        header nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px 0; 
+        }
+        header nav ul { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+            display: flex; 
+            gap: 20px;
+            direction: rtl; /* Necessary for list items */
+        }
+
+        /* --- CTA Button Styling --- */
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
             background-color: #28a745; /* Green CTA color */
             color: white;
-            text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
             transition: background-color 0.3s;
         }
         .cta-button:hover { background-color: #218838; }
-        
-        /* Icon Styling */
-        .icon { width: 30px; height: 30px; vertical-align: middle; margin-right: 10px; fill: currentColor; }
-        .problem-icon { color: #dc3545; /* Red for errors/problems */ }
-        .solution-icon { color: #17a2b8; /* Cyan/Blue for solutions */ }
-        .benefit-icon { color: #28a745; /* Green for success */ }
 
-        /* Flex layout for pillars/items */
+        /* --- Icons and Flex Layout --- */
+        .icon { width: 30px; height: 30px; vertical-align: middle; margin-left: 10px; fill: currentColor; }
+        .problem-icon { color: #dc3545; }
+        .solution-icon { color: #17a2b8; }
+        .benefit-icon { color: #28a745; }
         .flex-row { display: flex; justify-content: space-around; gap: 30px; margin-top: 40px; }
+        
+        /* --- Trust Section --- */
+        blockquote { 
+            background-color: #f0f8ff; 
+            padding: 25px; 
+            border-right: 5px solid #28a745; /* Border on the right for RTL */
+            margin-top: 40px;
+        }
+        blockquote footer { text-align: left; } /* Align attribution to the left (visual start) */
     </style>
 </head>
 
 <body>
 
     <header class="container">
-        <nav style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0;">
+        <nav>
             <div class="logo">
                 <img src="[Your Formyula Logo URL]" alt="Formyula Logo" style="height: 40px;">
                 <span style="font-size: 1.5em; font-weight: bold;">Formyula / פורמיולה</span>
             </div>
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 20px;">
+            <ul>
                 <li><a href="#problem">The Challenge</a></li>
                 <li><a href="#solution">How It Works</a></li>
                 <li><a href="#benefits">Results</a></li>
@@ -62,8 +87,7 @@
             <p style="margin-top: 20px; font-size: 0.9em;">Seamlessly Integrate with Salesforce (NFP & Business)</p>
             
             <div style="margin-top: 40px;">
-                <img src="[Placeholder: Use a free stock image of a clean laptop screen showing a form, with wires connecting to a stylized cloud/database icon. Try searching Unsplash for 'data connection' or 'online form']" 
-                     alt="Formyula data connection visual" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                
             </div>
         </div>
     </section>
@@ -117,8 +141,7 @@
             </div>
             
             <div class="text-center" style="margin-top: 60px;">
-                <img src="[Placeholder: Use a free stock image of a simplified flow chart showing 'Input' -> 'Process' -> 'Database Output'. Search Unsplash for 'workflow' or 'data integration']" 
-                     alt="Formyula workflow diagram" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                
             </div>
         </div>
     </section>
@@ -151,12 +174,12 @@
             <h2>Trusted by Leaders in NFP and Business</h2>
             
             <div style="margin: 30px 0;">
-                <img src="[Placeholder for Salesforce Logo]" alt="Salesforce Partner" style="height: 50px; margin: 0 20px;">
-                <img src="[Placeholder for NFP Client Logo]" alt="Client Logo 1" style="height: 50px; margin: 0 20px;">
-                <img src="[Placeholder for Business Client Logo]" alt="Client Logo 2" style="height: 50px; margin: 0 20px;">
+                [Placeholder for Salesforce Logo]
+                [Placeholder for NFP Client Logo]
+                [Placeholder for Business Client Logo]
             </div>
             
-            <blockquote style="background-color: #f0f8ff; padding: 25px; border-left: 5px solid #28a745; margin-top: 40px;">
+            <blockquote>
                 <p style="font-style: italic; font-size: 1.1em;">"Formyula reduced our intake time from 48 hours to 10 minutes. The data is perfect every time."</p>
                 <footer>— Operations Director, **Major NFP Organization**</footer>
             </blockquote>
@@ -179,3 +202,4 @@
 
 </body>
 </html>
+```
