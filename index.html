@@ -1,203 +1,152 @@
 <!DOCTYPE html>
-<html lang="en"> <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formyula / פורמיולה | Unified Data Forms for Everyone</title>
-    
-    <style>
-        /* --- General Reset & Layout --- */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
-        section { padding: 80px 5%; min-height: 400px; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        .text-center { text-align: center; }
-        .bg-light { background-color: #f7f7f7; }
-        h1, h2 { color: #007bff; /* Primary Brand Color (Blue)  */ }
-        a { text-decoration: none; color: #007bff; }
-
-        /* --- Header & Navigation (RTL Specific) --- */
-        header nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 20px 0; 
-        }
-        header nav ul { 
-            list-style: none; 
-            padding: 0; 
-            margin: 0; 
-            display: flex; 
-            gap: 20px;
-        }
-
-        /* --- CTA Button Styling --- */
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #28a745; /* Green CTA color */
-            color: white;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .cta-button:hover { background-color: #218838; }
-
-        /* --- Icons and Flex Layout --- */
-        .icon { width: 30px; height: 30px; vertical-align: middle; margin-left: 10px; fill: currentColor; }
-        .problem-icon { color: #dc3545; }
-        .solution-icon { color: #17a2b8; }
-        .benefit-icon { color: #28a745; }
-        .flex-row { display: flex; justify-content: space-around; gap: 30px; margin-top: 40px; }
-        
-        /* --- Trust Section --- */
-        blockquote { 
-            background-color: #f0f8ff; 
-            padding: 25px; 
-            border-right: 5px solid #28a745; /* Border on the right for RTL */
-            margin-top: 40px;
-        }
-        blockquote footer { text-align: left; } /* Align attribution to the left (visual start) */
-    </style>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formyula | Salesforce-connected web pages and tools</title>
+<meta name="description" content="Custom forms, portals and staff tools that read and write your Salesforce data. Built for nonprofits and growing organizations.">
+<style>
+:root{--ink:#14213d;--muted:#5b6678;--blue:#1d4ed8;--blue-d:#1e3a8a;--sky:#eef4ff;--line:#e3e8f0;--green:#16a34a;--bg:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none;color:var(--blue-d)}
+.brand span{color:var(--blue)}
+.nav nav{display:flex;gap:22px;align-items:center;font-size:15px}
+.nav nav a{text-decoration:none;color:var(--muted)}
+.btn{display:inline-block;background:var(--blue);color:#fff!important;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;font-size:16px}
+.btn.alt{background:#fff;color:var(--blue-d)!important;border:1px solid #c5d3f0}
+.nav .btn{padding:9px 16px;font-size:14px}
+.hero{background:linear-gradient(180deg,var(--sky),#fff);padding:72px 0 56px}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+h1{font-size:46px;line-height:1.1;letter-spacing:-.03em;margin:12px 0 18px}
+.lead{font-size:19px;color:var(--muted);max-width:560px;margin:0 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.mock{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(20,33,61,.12);overflow:hidden;font-size:13px}
+.mock .bar{background:#f4f6fa;padding:9px 12px;display:flex;gap:6px;align-items:center;border-bottom:1px solid var(--line)}
+.mock .bar i{width:9px;height:9px;border-radius:50%;background:#cfd6e4;display:block}
+.mock .bar b{margin-left:10px;font-weight:600;color:var(--muted);font-size:12px}
+.mock .body{padding:14px}
+.mock table{width:100%;border-collapse:collapse}
+.mock th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:6px 6px;border-bottom:1px solid var(--line)}
+.mock td{padding:8px 6px;border-bottom:1px solid #f0f3f8}
+.tag{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600}
+.t-g{background:#dcfce7;color:#166534}.t-y{background:#fef3c7;color:#92400e}.t-b{background:#dbeafe;color:#1e40af}
+.mock .note{margin-top:10px;font-size:11px;color:var(--muted)}
+section{padding:64px 0}
+h2{font-size:32px;letter-spacing:-.02em;margin:0 0 10px;line-height:1.2}
+.sub{color:var(--muted);font-size:18px;max-width:680px;margin:0 0 36px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fff}
+.card h3{margin:0 0 8px;font-size:19px}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+.ico{width:40px;height:40px;border-radius:10px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-weight:800;margin-bottom:14px}
+.alt-bg{background:#f7f9fc;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.work{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.proj{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+.proj .k{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--blue)}
+.proj h3{margin:6px 0 10px;font-size:21px}
+.proj p{margin:0 0 10px;color:var(--muted);font-size:15.5px}
+.proj ul{margin:0;padding-left:18px;font-size:15px;color:var(--ink)}
+.proj li{margin:3px 0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{padding-top:14px;border-top:3px solid var(--blue)}
+.step b{display:block;margin-bottom:4px}
+.step span{color:var(--muted);font-size:15px}
+.stack{display:flex;flex-wrap:wrap;gap:10px}
+.stack span{border:1px solid #c5d3f0;background:#fff;border-radius:99px;padding:7px 14px;font-size:14px;font-weight:600;color:var(--blue-d)}
+.cta-band{background:var(--blue-d);color:#fff;border-radius:18px;padding:44px;text-align:center}
+.cta-band h2{color:#fff}
+.cta-band p{color:#d6e2ff;max-width:560px;margin:0 auto 24px;font-size:18px}
+.pending{display:inline-block;border:1px dashed #9db6ee;color:#d6e2ff;padding:12px 22px;border-radius:10px;font-weight:600;font-size:16px}
+footer{padding:32px 0;color:var(--muted);font-size:14px;text-align:center}
+@media(max-width:860px){
+ .hero .grid{grid-template-columns:1fr}
+ h1{font-size:36px}
+ .cards,.work{grid-template-columns:1fr}
+ .steps{grid-template-columns:1fr 1fr}
+ .nav nav a.hide-m{display:none}
+ section{padding:48px 0}
+ .cta-band{padding:32px 20px}
+}
+@media(max-width:480px){.cta-band h2{font-size:25px}.steps{grid-template-columns:1fr}.hero{padding:44px 0 36px}h1{font-size:32px}}
+</style>
 </head>
-
 <body>
+<header><div class="wrap nav">
+ <a class="brand" href="#">Formyula<span>.</span></a>
+ <nav><a class="hide-m" href="#what">What I build</a><a class="hide-m" href="#work">Examples</a><a class="hide-m" href="#how">How it works</a><a class="hide-m" href="#contact">Contact</a></nav>
+</div></header>
 
-    <header class="container">
-        <nav>
-            <div class="logo">
-                <img src="[Your Formyula Logo URL]" alt="Formyula Logo" style="height: 40px;">
-                <span style="font-size: 1.5em; font-weight: bold;">Formyula / פורמיולה</span>
-            </div>
-            <ul>
-                <li><a href="#problem">The Challenge</a></li>
-                <li><a href="#solution">How It Works</a></li>
-                <li><a href="#benefits">Results</a></li>
-                <li><a href="#cta-final">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="hero"><div class="wrap grid">
+ <div>
+  <div class="eyebrow">Salesforce-connected web development</div>
+  <h1>Web pages and tools that put your Salesforce data to work.</h1>
+  <p class="lead">Registration forms, donation pages, staff portals and automations that read and write your Salesforce records directly. No double entry, no copying spreadsheets. Built for nonprofits and growing teams.</p>
+  <div class="cta"><a class="btn" href="#work">See examples</a><a class="btn alt" href="#what">What I build</a></div>
+ </div>
+ <div class="mock" aria-label="Illustration of a staff dashboard with sample data">
+  <div class="bar"><i></i><i></i><i></i><b>Staff dashboard (sample data)</b></div>
+  <div class="body">
+   <table>
+    <tr><th>Name</th><th>Program</th><th>Status</th></tr>
+    <tr><td>Dana Levy</td><td>Mentoring</td><td><span class="tag t-g">Active</span></td></tr>
+    <tr><td>Sam Rivera</td><td>Housing</td><td><span class="tag t-y">Pending docs</span></td></tr>
+    <tr><td>Alex Chen</td><td>Scholarship</td><td><span class="tag t-b">Interview set</span></td></tr>
+    <tr><td>Maya Cohen</td><td>Events</td><td><span class="tag t-g">Registered</span></td></tr>
+   </table>
+   <div class="note">Illustration with made-up names.</div>
+  </div>
+ </div>
+</div></div>
 
-    <section id="hero" class="text-center" style="background-color: #e6f7ff;">
-        <div class="container">
-            <h1>Stop Double-Entry. Start Driving Data.</h1>
-            <p style="font-size: 1.3em; margin-bottom: 30px;">
-                Instantly connect external forms to Salesforce to unify data, eliminate busywork, and keep your team focused on mission-critical tasks.
-            </p>
-            <a href="#cta-final" class="cta-button">Book a 15-Minute Demo</a>
-            <p style="margin-top: 20px; font-size: 0.9em;">Seamlessly Integrate with Salesforce (NFP & Business)</p>
-            
-            <div style="margin-top: 40px;">
-                
-            </div>
-        </div>
-    </section>
+<section id="what"><div class="wrap">
+ <h2>What I build</h2>
+ <p class="sub">Salesforce is a strong database for an organization, but its screens are not always right for the public or for busy staff. I build the pages around it.</p>
+ <div class="cards">
+  <div class="card"><div class="ico">1</div><h3>Public forms and payments</h3><p>Registration, donation and signup pages that create Contacts, Campaign Members and Opportunities in Salesforce, take payment through your gateway and let people resume where they left off.</p></div>
+  <div class="card"><div class="ico">2</div><h3>Staff portals and case tools</h3><p>Focused screens for case workers, coordinators and volunteers: search, review, update, attach documents and see only what each role needs. Sign-in through your own Google accounts.</p></div>
+  <div class="card"><div class="ico">3</div><h3>Contracts and signatures</h3><p>Applications, interviews and agreements filled in on screen, signed on a phone or tablet and filed back to the right Salesforce record.</p></div>
+  <div class="card"><div class="ico">4</div><h3>Integrations and automation</h3><p>Connect donation platforms, email tools, receipting and exchange-rate feeds so data moves on its own. Scheduled reports land in the right inbox.</p></div>
+  <div class="card"><div class="ico">5</div><h3>Reports your team can open</h3><p>Year-to-date giving, campaign summaries and coordinator reports in a clean page, without building a dashboard for every question.</p></div>
+  <div class="card"><div class="ico">6</div><h3>Beyond Salesforce</h3><p>Where Salesforce is not the right fit, I build on a standard database such as MySQL, or sync the two.</p></div>
+ </div>
+</div></section>
 
-    <section id="problem" class="bg-light">
-        <div class="container text-center">
-            <h2>The Data Dilemma: Why Manual Forms are Costing You</h2>
-            <div class="flex-row">
-                <div style="flex-basis: 30%;">
-                    <svg class="icon problem-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.83 15H11v-4.66l2.91 1.25.17.41-.33.16zM13 10.99V6h-1v4.99l-2.91 1.25-.17-.41.33-.16z"/></svg>
-                    <h3>Wasted Time</h3>
-                    <p>Employees spend hours logging into Salesforce and manually copying data, instead of working with clients/donors.</p>
-                </div>
-                <div style="flex-basis: 30%;">
-                    <svg class="icon problem-icon" viewBox="0 0 24 24"><path d="M10 16.5c0 .28-.22.5-.5.5h-4c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h4c.28 0 .5.22.5.5zm8.5-3h-4c-.28 0-.5.22-.5.5s.22.5.5.5h4c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zm-4-6h-4c-.28 0-.5.22-.5.5s.22.5.5.5h4c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zm.5 12h-4c-.28 0-.5.22-.5.5s.22.5.5.5h4c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zm-8-6h-4c-.28 0-.5.22-.5.5s.22.5.5.5h4c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zm8-6h-4c-.28 0-.5.22-.5.5s.22.5.5.5h4c.28 0 .5-.22.5-.5s-.22-.5-.5-.5z"/></svg>
-                    <h3>Data Silos</h3>
-                    <p>Information is fragmented across forms, emails, and SF objects, making a single source of truth impossible.</p>
-                </div>
-                <div style="flex-basis: 30%;">
-                    <svg class="icon problem-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                    <h3>High Errors</h3>
-                    <p>Manual entry leads to inevitable typos, duplicates, and inaccurate reports.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="work" class="alt-bg"><div class="wrap">
+ <h2>Examples from real projects</h2>
+ <p class="sub">Drawn from work for a nonprofit organization in Israel. Details are anonymized and shown with recreated sample data.</p>
+ <div class="work">
+  <div class="proj"><div class="k">Public registration</div><h3>Event registration with payment</h3><p>A bilingual signup form for a large public event, from waiver to payment, with a link to resume later.</p><ul><li>Waiver and personal details in one flow</li><li>Card payment in a secure pop-up, with status checks</li><li>Resume-by-link for unfinished registrations</li><li>Records created in Salesforce</li></ul></div>
+  <div class="proj"><div class="k">Case management</div><h3>Housing and program manager</h3><p>One place for staff to follow applicants from first request to signed contract.</p><ul><li>Applicant lists, filters and attachments</li><li>Interview and contract pages with on-screen signing</li><li>Fields and picklists pulled live from Salesforce</li></ul></div>
+  <div class="proj"><div class="k">Operations</div><h3>Inventory and requests</h3><p>Track items, record what goes out and let coordinators request supplies.</p><ul><li>Add, request and approve flows</li><li>Linked to people and programs in Salesforce</li></ul></div>
+  <div class="proj"><div class="k">Fundraising</div><h3>Donations, receipts and reports</h3><p>Donations from outside platforms land in Salesforce automatically and feed regular reports.</p><ul><li>Incoming donations matched to existing donors</li><li>Unsubscribes synced back from the email platform</li><li>Scheduled monthly and weekly report emails</li></ul></div>
+ </div>
+</div></section>
 
-    <section id="solution">
-        <div class="container">
-            <h2 class="text-center">The Formyula Advantage: Build Once, Connect Forever</h2>
-            <p class="text-center" style="font-size: 1.1em;">
-                We don't just build forms—we engineer a seamless data connection (a "formula") that flows directly into your Salesforce instance.
-            </p>
-            
-            <div class="flex-row">
-                <div class="pillar-item">
-                    <svg class="icon solution-icon" viewBox="0 0 24 24"><path d="M19 12h-2v3h2v-3zm0-4h-2v2h2V8zM5 12h2v3H5v-3zm0-4h2v2H5V8zm12 8h-4v2h4v-2zM7 18h4v-2H7v2zm8-10H9v2h6V8z"/></svg>
-                    <h3>1. Multi-Object Mapping</h3>
-                    <p>Pull and push data from multiple Salesforce Objects into a **single, unified form**—no code required.</p>
-                </div>
-                <div class="pillar-item">
-                    <svg class="icon solution-icon" viewBox="0 0 24 24"><path d="M14.06 9.94l-5.65 5.65c-.2.2-.51.2-.71 0l-1.5-1.5c-.2-.2-.2-.51 0-.71l5.65-5.65c.2-.2.51-.2.71 0l1.5 1.5c.2.2.2.51 0 .71zM17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 19h10V5H7v14z"/></svg>
-                    <h3>2. Intuitive Form Builder</h3>
-                    <p>Drag-and-drop interface for beautiful, mobile-responsive forms that perfectly match your brand.</p>
-                </div>
-                <div class="pillar-item">
-                    <svg class="icon solution-icon" viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.2-.16.25-.43.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.39-1.09-.72-1.71-.96l-.37-2.65c-.06-.24-.27-.42-.51-.42h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.62.24-1.19.57-1.71.96l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.21-.08.48.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.2.16-.25.43-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.39 1.09.72 1.71.96l.37 2.65c.06.24.27.42.51.42h4c.25 0 .46-.18.5-.42l.37-2.65c.62-.24 1.19-.57 1.71-.96l2.49 1c.23.09.49 0 .61-.22l2-3.46c.13-.21.08-.48-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
-                    <h3>3. Smart Data Logic</h3>
-                    <p>Implement complex conditional fields, validation rules, and payment integrations right into the form.</p>
-                </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 60px;">
-                
-            </div>
-        </div>
-    </section>
+<section id="how"><div class="wrap">
+ <h2>How we work together</h2>
+ <p class="sub">Small, clear steps, so you always know what is being built.</p>
+ <div class="steps">
+  <div class="step"><b>1. Talk</b><span>You describe the process. I ask how your Salesforce is set up.</span></div>
+  <div class="step"><b>2. Sketch</b><span>You see the page and the data it will touch before I build.</span></div>
+  <div class="step"><b>3. Build</b><span>Working version on your hosting, tested with your staff.</span></div>
+  <div class="step"><b>4. Support</b><span>Fixes and changes as your needs grow.</span></div>
+ </div>
+ <div style="margin-top:36px" class="stack"><span>Salesforce API</span><span>PHP</span><span>JavaScript</span><span>HTML / CSS</span><span>MySQL</span><span>Payment gateways</span><span>Google sign-in</span></div>
+</div></section>
 
-    <section id="benefits" class="bg-light">
-        <div class="container text-center">
-            <h2>Stop Working on Data. Start Focusing on Impact.</h2>
-            <div class="flex-row">
-                <div style="flex-basis: 30%;">
-                    <svg class="icon benefit-icon" viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9 0 4.17 2.84 7.67 6.64 8.67l.36.14V14c0-.55.45-1 1-1h4c.55 0 1 .45 1 1v6.81l.36-.14c3.8-1 6.64-4.5 6.64-8.67 0-4.97-4.03-9-9-9zM7.5 12c.55 0 1 .45 1 1v3H7v-3c0-.55.45-1 1-1zm4.5-5.5c.55 0 1 .45 1 1v3h-2v-3c0-.55.45-1 1-1zm4.5 5.5c.55 0 1 .45 1 1v3h-2v-3c0-.55.45-1 1-1z"/></svg>
-                    <h3>Boost Productivity</h3>
-                    <p>Free up your team from data entry so they can focus on donor relations, client service, or closing deals.</p>
-                </div>
-                <div style="flex-basis: 30%;">
-                    <svg class="icon benefit-icon" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
-                    <h3>Data Integrity</h3>
-                    <p>Eliminate duplicates and ensure every data point is instantly and correctly logged exactly where it needs to be.</p>
-                </div>
-                <div style="flex-basis: 30%;">
-                    <svg class="icon benefit-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"/></svg>
-                    <h3>Delight Your Users</h3>
-                    <p>Provide a professional, modern, and frustration-free experience for everyone filling out your forms.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="trust">
-        <div class="container text-center">
-            <h2>Trusted by Leaders in NFP and Business</h2>
-            
-            <div style="margin: 30px 0;">
-                [Placeholder for Salesforce Logo]
-                [Placeholder for NFP Client Logo]
-                [Placeholder for Business Client Logo]
-            </div>
-            
-            <blockquote>
-                <p style="font-style: italic; font-size: 1.1em;">"Formyula reduced our intake time from 48 hours to 10 minutes. The data is perfect every time."</p>
-                <footer>— Operations Director, **Major NFP Organization**</footer>
-            </blockquote>
-        </div>
-    </section>
-
-    <section id="cta-final" style="background-color: #007bff; color: white;" class="text-center">
-        <div class="container">
-            <h2>Ready to Unify Your Data and Simplify Your Forms?</h2>
-            <p style="font-size: 1.2em; margin-bottom: 40px;">Let's discuss how Formyula can streamline your data flow.</p>
-            
-            <a href="[Your Calendly/Contact Link]" class="cta-button" style="background-color: white; color: #007bff;">Book Your Free Formyula Consultation</a>
-        </div>
-    </section>
-
-    <footer class="text-center" style="padding: 20px; background-color: #333; color: white;">
-        <p>&copy; 2025 Formyula. All rights reserved.</p>
-        <p><a href="[Link to Privacy Policy]" style="color: white; text-decoration: none;">Privacy Policy</a> | <a href="[Link to Terms]" style="color: white; text-decoration: none;">Terms of Service</a></p>
-    </footer>
-
+<section id="contact" style="padding-top:0"><div class="wrap">
+ <div class="cta-band">
+  <h2>Have a process stuck in spreadsheets?</h2>
+  <p>Tell me what your team does by hand today. I will tell you whether a page connected to Salesforce can fix it.</p>
+  <span class="pending">Contact details coming soon</span>
+ </div>
+</div></section>
+<footer><div class="wrap">&copy; Formyula</div></footer>
 </body>
 </html>
